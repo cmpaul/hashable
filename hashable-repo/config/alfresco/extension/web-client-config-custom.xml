@@ -1,0 +1,32 @@
+<alfresco-config>
+
+	<!-- Display hashable properties for content with the Hashable aspect -->
+	<config evaluator="aspect-name" condition="dm:hashable">
+		<property-sheet>
+			<show-property name="dm:hashType" display-label-id="demo.property.hashtype.title" />
+			<show-property name="dm:hashValue" display-label-id="demo.property.hashvalue.title" />
+		</property-sheet>
+	</config>
+
+	<!-- Activate the option to add the Hashable aspect in the Action Wizard -->
+	<config evaluator="string-compare" condition="Action Wizards">
+		<aspects>
+			<aspect name="dm:hashable" />
+		</aspects>
+		<!-- Offer this option to all content. This can be updated to reflect
+		     only the types that you want to make Hashable. -->
+		<subtypes>
+			<type name="cm:content" />
+		</subtypes>
+	</config>
+	
+	<!-- Allow repo users to search for content with a given hash type -->
+	<config evaluator="string-compare" condition="Advanced Search">
+		<advanced-search>
+			<custom-properties>
+				<meta-data aspect="dm:hashable" property="dm:hashType" 
+					display-label-id="demo.property.hashtype.title" />
+			</custom-properties>
+		</advanced-search>
+	</config>
+</alfresco-config>

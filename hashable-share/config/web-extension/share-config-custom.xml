@@ -1,0 +1,29 @@
+<alfresco-config>
+	
+	<!-- Display the Hashable aspect in the "Manage Aspects" pop-up -->
+	<config evaluator="string-compare" condition="DocumentLibrary">
+		<aspects>
+			<visible>
+				<aspect name="dm:hashable" />
+			</visible>
+			<addable></addable>
+			<removable></removable>
+		</aspects>
+	</config>
+	
+	<!-- Display the Hashable properties -->
+	<config evaluator="node-type" condition="cm:content">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="dm:hashType" />
+					<show id="dm:hashValue" />
+				</field-visibility>
+				<appearance>
+					<field id="dm:hashValue" read-only="true" />
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	
+</alfresco-config>

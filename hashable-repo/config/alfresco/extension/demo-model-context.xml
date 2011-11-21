@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING/DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+	<!-- Load the demo content model -->
+	<bean id="demo.extension.dictionaryBootstrap" parent="dictionaryModelBootstrap"	depends-on="dictionaryBootstrap">
+		<property name="models">
+			<list>
+				<value>alfresco/extension/model/demoModel.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Load the demo properties file -->
+	<bean id="demo.extension.resourceBundle" class="org.alfresco.i18n.ResourceBundleBootstrapComponent">
+		<property name="resourceBundles">
+			<list>
+				<value>alfresco.extension.messages.demo</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Instantiate the ContentHasher which will generate digests for content -->
+	<bean id="demo.extension.contenthasher" class="com.tribloom.demo.ContentHasher"
+		init-method="init">
+		<property name="policyComponent">
+			<ref bean="policyComponent" />
+		</property>
+		<property name="nodeService">
+			<ref bean="NodeService" />
+		</property>
+		<property name="contentService">
+			<ref bean="ContentService" />
+		</property>
+		<property name="policyFilter">
+			<ref bean="policyBehaviourFilter" />
+		</property>
+	</bean>
+
+</beans>
+	

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="dm:demomodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<description>Demo Content Model</description>
+	<author>Tribloom - Chris Paul</author>
+	<version>1.0</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="http://www.tribloom.com/model/demo/1.0" prefix="dm" />
+	</namespaces>
+
+	<aspects>
+		<aspect name="dm:hashable">
+			<title>Hashable</title>
+			<properties>
+				<property name="dm:hashType">
+					<title>Hash Type</title>
+					<type>d:text</type>
+					<default>md5</default>
+					<constraints>
+						<constraint type="LIST">
+							<parameter name="allowedValues">
+								<list>
+									<value>md2</value>
+									<value>md5</value>
+									<value>sha-1</value>
+									<value>sha-256</value>
+									<value>sha-384</value>
+									<value>sha-512</value>
+								</list>
+							</parameter>
+						</constraint>
+					</constraints>
+				</property>
+				<property name="dm:hashValue">
+					<title>Hash Value</title>
+					<type>d:text</type>		
+				</property>
+			</properties>
+		</aspect>
+	</aspects>
+</model>

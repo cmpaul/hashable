@@ -1,0 +1,4 @@
+alfresco.sdk.remote.dir=/usr/local/bin/alfresco/lib/remote
+alfresco.sdk.server.dir=/usr/local/bin/alfresco/lib/server
+alfresco.web.dir=/usr/local/bin/apache/tomcat/webapps/alfresco
+alfresco.war.path=/usr/local/bin/apache/tomcat/webapps/alfresco.war
